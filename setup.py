@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='x_com_ufo_defense',
+    name='x-com-ufo-defense',
     version='19.9.9',
     packages=find_packages(exclude=[ 'docs' ]),
     install_requires=[  'numpy',
