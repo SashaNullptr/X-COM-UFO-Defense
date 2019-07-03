@@ -11,16 +11,6 @@ services:
     volumes:
       - /srv/postgres:/var/lib/postgresql/data
 
-  redis:
-    restart: always
-    image: redis:5.0-alpine
-    networks:
-      - redis_network
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-    volumes:
-      - /srv/redis:/data
-
 networks:
   external_network:
     driver: bridge
@@ -31,6 +21,4 @@ networks:
         - subnet: 172.31.0.0/16
         - subnet: 2600:3c03:e000:027b::/64
   db_network:
-    internal: true
-  redis_network:
     internal: true
