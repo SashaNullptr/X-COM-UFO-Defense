@@ -1,7 +1,9 @@
 from configparser import ConfigParser
+from x_com import DB_CONFIG
 
+def config( filename=None, section='postgresql' ):
 
-def config(filename, section='postgresql'):
+    filename = filename if filename is not None else DB_CONFIG
 
     parser = ConfigParser()
     parser.read(filename)
