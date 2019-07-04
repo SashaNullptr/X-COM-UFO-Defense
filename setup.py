@@ -6,7 +6,7 @@ setup(
     packages=find_packages(exclude=[ 'docs' ]),
     install_requires=[  'numpy',
                         'scipy',
-                        'redis',
+                        'psycog2',
                         'flask',
                         'flask_cors'  ],
     classifiers=(
