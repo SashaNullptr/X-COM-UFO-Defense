@@ -1,5 +1,23 @@
+import psycopg2
 from db_config import config
-from x_com import DB_CONFIG
+
+def send_query_no_results(query):
+
+    conn = None
+
+    try:
+        params = config()
+        conn = psycopg2.connect(**params)
+
+        cur = conn.cursor()
+
+        cur.execute(query)
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
 
 def send_query(query):
 
