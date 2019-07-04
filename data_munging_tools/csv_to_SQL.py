@@ -38,7 +38,7 @@ def csv_to_SQL( csv_file ):
 
 def main():
     create_ufo_data_table()
-    data_sets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+    data_sets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data_sets'))
     csv_file_path = os.path.join(data_sets_dir,'ufo-sightnings.csv')
     csv_to_SQL(csv_file_path)
 
