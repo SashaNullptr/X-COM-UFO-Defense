@@ -1,5 +1,4 @@
 import psycopg2
-from db_config import config
 
 def send_query_no_results(query):
 
