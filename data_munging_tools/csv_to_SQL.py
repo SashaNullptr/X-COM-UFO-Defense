@@ -1,5 +1,6 @@
-import csv, psycog2
+import csv, psycopg2
 import sys
+import os
 
 from x_com import send_query_no_results
 
