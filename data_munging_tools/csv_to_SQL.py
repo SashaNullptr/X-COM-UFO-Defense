@@ -37,7 +37,10 @@ def csv_to_SQL( csv_file ):
     cursor.commit()
 
 def main():
-    pass
+    create_ufo_data_table()
+    data_sets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+    csv_file_path = os.path.join(data_sets_dir,'ufo-sightnings.csv')
+    csv_to_SQL(csv_file_path)
 
 if '__main__' == __name__:
     main()
