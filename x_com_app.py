@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/counter', methods=['GET'])
-def get_answer( event=None, context=None ):
+def counter_endpoint( event=None, context=None ):
     """
     API endpoint that returns the total number of UFO sightings.
 
@@ -40,7 +40,7 @@ def get_answer( event=None, context=None ):
     return app.response_class( json.dumps( count_rows_in_table() ), mimetype='application/json' )
 
 @app.route('/unique_ship_shapes', methods=['GET'])
-def get_answer( event=None, context=None ):
+def unique_ship_shapes_endpoint( event=None, context=None ):
     """
     API endpoint that returns the total number of unique shapes of alien ships across all sightings.
 
@@ -102,6 +102,7 @@ def evac_priorties_endpoint( event=None, context=None ):
     """
 
     return app.response_class( json.dumps( evac_priorties() ), mimetype='application/json' )
+
 
 if __name == '__main__':
     app.run(debug=True, host='0.0.0.0')
