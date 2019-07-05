@@ -1,5 +1,25 @@
 # X-COM: UFO Defense
 
+## Machine Dependencies
+
+```
+apt install postgresql postgresql-contrib
+```
+
+
+```mermaid
+graph TD;
+  subgraph "VM/Bare Metal"
+      db[Local Postgres DB]
+  end
+  subgraph "Containers"
+      pg[Postgres Container]
+      fa[Flask App Container]
+      fa ---pg
+      pg --> db
+  end
+```
+
 ## Deployment
 
 This section concerns everything handled by a Docker containers.
@@ -64,6 +84,11 @@ a host volume.
 ```shell
 sudo docker-compose down
 ```
+
+## Populating the Database
+
+The included `data_munging_tools/csv_to_SQL.sh` script will dump data from the included
+CSV file into a Postgres database on our local machine.
 
 ## Accessing the App
 
