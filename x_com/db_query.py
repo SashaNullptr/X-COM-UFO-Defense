@@ -1,4 +1,5 @@
 import psycopg2
+from x_com.db_config import config
 
 
 def send_query_no_results(query):
@@ -26,7 +27,7 @@ def send_query(query):
     result = None
 
     try:
-        params = config(DB_CONFIG)
+        params = config()
         conn = psycopg2.connect(**params)
 
         cur = conn.cursor()
