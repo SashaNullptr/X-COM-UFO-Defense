@@ -64,5 +64,44 @@ def get_answer( event=None, context=None ):
 
     return app.response_class( json.dumps( unique_ship_shapes() ), mimetype='application/json' )
 
+@app.route('/evac_priorties', methods=['GET'])
+def evac_priorties_endpoint( event=None, context=None ):
+    """
+    API endpoint that returns Top-10 Cities in the United States with the most UFO sightings in descending order.
+
+    An example request might look like:
+
+    .. sourcecode:: http
+
+       GET www.x.com/evac_priorties HTTP/1.1
+       Host: example.com
+       Accept: application/json, text/javascript
+
+    Results will be returned as JSON object with the following format:
+
+    .. code-block:: json
+
+        {
+          "sightings": [
+            {
+                "city": <city_name_with_most_sightings:string>,
+                "count": <sightings_in_this_city:int>
+            },
+            {
+                "city": <city_name_with_second_most_sightings:string>,
+                "count": <sightings_in_this_city:int>
+            },
+            ...
+            ...
+            {
+                "city": <city_name_with_tenth_most_sightings:string>,
+                "count": <sightings_in_this_city:int>
+            }
+          ]
+        }
+    """
+
+    return app.response_class( json.dumps( evac_priorties() ), mimetype='application/json' )
+
 if __name == '__main__':
     app.run(debug=True, host='0.0.0.0')
