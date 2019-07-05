@@ -1,18 +1,18 @@
 FROM ubuntu:18.04
 
-MAINTANER Your Name "sashanullptr@gmail.com"
+MAINTAINER Sasha Fox "sashanullptr@gmail.com"
 
 RUN apt-get update -y && apt-get install -y python-pip python-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
+COPY ./../requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-RUN pip install -r requirements.txt
+RUN pip install ..
 
-COPY . /app
+COPY .. /app
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "app.py" ]
+CMD [ "x_com_app.py" ]
