@@ -3,7 +3,7 @@ from x_com import config
 
 def evac_priorties():
 
-    sightings_by_city_query = 'SELECT city, COUNT(*) FROM ufo_data GROUP BY city ORDER BY COUNT(*) DESC;'
+    sightings_by_city_query = "SELECT city, COUNT(*) FROM ufo_data WHERE country LIKE \'us\' GROUP BY city ORDER BY COUNT(*) DESC;"
 
     sightings = []
 
