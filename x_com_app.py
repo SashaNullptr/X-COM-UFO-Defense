@@ -9,7 +9,7 @@ from flask import Flask, request, json, redirect, url_for, send_from_directory
 from flask_cors import CORS, cross_origin
 
 # Local
-from x_com import count_rows_in_table, unique_ship_shapes
+from x_com import count_rows_in_table, unique_ship_shapes, evac_priorties
 
 app = Flask(__name__)
 CORS(app)
