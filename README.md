@@ -65,5 +65,11 @@ a host volume.
 sudo docker-compose down
 ```
 
+## Accessing the App
 
-## Docs
+The app will expose port `5000` and the following endpoints:
+
+* `/total_sightings`: Total number of UFO sightings.
+* `/unique_ship_shapes`: Total number of unique shapes of alien ships across all sightings.
+* `/evac_priorties`: Top-10 Cities in the United States with the most UFO sightings in descending order.
+* `/closest_to_area_52`: Information about UFO sightings closest to Area 52.
