@@ -5,7 +5,8 @@ services:
     restart: always
     image: postgres:9.6-alpine
     networks:
-      - db_network
+      db_network:
+        ipv4_address: 172.31.0.15
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
     volumes:
@@ -17,9 +18,12 @@ services:
 
   flask:
     restart: always
-    image: sashanullptr/samba:latest
+    image: sashanullptr/xcom:latest
     networks:
-      - db_network
+      external_network:
+        ipv4_address: 192.168.1.15
+      db_network:
+        ipv4_address: 172.31.0.10
     healthcheck:
         test: curl --fail http://localhost:5000/ping || exit 1
         interval: 10s
@@ -32,8 +36,5 @@ networks:
     enable_ipv6: true
     ipam:
       driver: default
-      config:
-        - subnet: 172.31.0.0/16
-        - subnet: 2600:3c03:e000:027b::/64
   db_network:
     internal: true
