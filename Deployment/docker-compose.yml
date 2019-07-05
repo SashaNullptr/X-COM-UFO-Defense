@@ -11,6 +11,16 @@ services:
     volumes:
       - /srv/postgres:/var/lib/postgresql/data
 
+  flask:
+    restart: always
+    image: sashanullptr/samba:latest
+    networks:
+      - db_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+    volumes:
+      - /srv/postgres:/var/lib/postgresql/data
+
 networks:
   external_network:
     driver: bridge
