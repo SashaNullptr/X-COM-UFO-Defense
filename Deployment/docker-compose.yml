@@ -17,9 +17,10 @@ services:
     networks:
       - db_network
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres"]
-    volumes:
-      - /srv/postgres:/var/lib/postgresql/data
+        test: curl --fail http://localhost:5000/ping || exit 1
+        interval: 10s
+        timeout: 2s
+        retries: 5
 
 networks:
   external_network:
