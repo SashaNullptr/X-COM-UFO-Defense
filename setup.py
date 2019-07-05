@@ -4,11 +4,11 @@ setup(
     name='x_com',
     version='19.9.9',
     packages=find_packages(exclude=[ 'docs' ]),
-    install_requires=[  'numpy',
+    install_requires=['numpy',
                         'scipy',
                         'psycopg2',
                         'flask',
-                        'flask_cors'  ],
+                        'flask_cors'],
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

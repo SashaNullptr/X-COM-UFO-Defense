@@ -1,5 +1,6 @@
 import psycopg2
 
+
 def send_query_no_results(query):
 
     conn = None
@@ -17,6 +18,7 @@ def send_query_no_results(query):
     finally:
         if conn is not None:
             conn.close()
+
 
 def send_query(query):
 
