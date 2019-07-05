@@ -6,20 +6,6 @@
 apt install postgresql postgresql-contrib
 ```
 
-
-```mermaid
-graph TD;
-  subgraph "VM/Bare Metal"
-      db[Local Postgres DB]
-  end
-  subgraph "Containers"
-      pg[Postgres Container]
-      fa[Flask App Container]
-      fa ---pg
-      pg --> db
-  end
-```
-
 ## Deployment
 
 This section concerns everything handled by a Docker containers.
