@@ -2,7 +2,7 @@ import psycopg2
 from x_com.db_config import config
 
 
-def send_query_no_results(query):
+def send_query_fetchone_no_results(query):
 
     conn = None
 
@@ -21,7 +21,7 @@ def send_query_no_results(query):
             conn.close()
 
 
-def send_query(query):
+def send_query_fetchone(query):
 
     conn = None
     result = None
