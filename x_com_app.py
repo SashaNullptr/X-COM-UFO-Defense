@@ -14,7 +14,7 @@ from x_com import count_rows_in_table, unique_ship_shapes, evac_priorties, close
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/counter', methods=['GET'])
+@app.route('/total_sightings', methods=['GET'])
 def counter_endpoint( event=None, context=None ):
     """
     API endpoint that returns the total number of UFO sightings.
