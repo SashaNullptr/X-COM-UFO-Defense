@@ -9,7 +9,7 @@ from flask import Flask, request, json, redirect, url_for, send_from_directory
 from flask_cors import CORS, cross_origin
 
 # Local
-from x_com import count_rows_in_table, unique_ship_shapes, evac_priorties
+from x_com import count_rows_in_table, unique_ship_shapes, evac_priorties, closest_to_area_52
 
 app = Flask(__name__)
 CORS(app)
@@ -102,6 +102,55 @@ def evac_priorties_endpoint( event=None, context=None ):
     """
 
     return app.response_class( json.dumps( evac_priorties() ), mimetype='application/json' )
+
+@app.route('/closest_to_area_52', methods=['GET'])
+def closest_to_area_52_endpoint( event=None, context=None ):
+    """
+    API endpoint that returns information about UFO sightings closest to Area 52.
+
+    An example request might look like:
+
+    .. sourcecode:: http
+
+       GET www.x.com/closest_to_area_52_endpoint HTTP/1.1
+       Host: example.com
+       Accept: application/json, text/javascript
+
+    Results will be returned as JSON object with the following format:
+
+    .. code-block:: json
+
+        {
+          "sightings": [
+            {
+                "city": <city_closest_to_base:string>,
+                "country": <country_of_city:string>,
+                ...
+                ...
+                "shape": <shape_of_ufo:string>,
+                "distance": <distance_of_ufo_from_area52:float>
+            },
+            {
+                "city": <city_second_closest:string>,
+                "country": <country_of_city:string>,
+                ...
+                ...
+                "shape": <shape_of_ufo:string>,
+                "distance": <distance_of_ufo_from_area52:float>
+            },
+            {
+                "city": <city_third_closest:string>,
+                "country": <country_of_city:string>,
+                ...
+                ...
+                "shape": <shape_of_ufo:string>,
+                "distance": <distance_of_ufo_from_area52:float>
+            }
+          ]
+        }
+    """
+
+    return app.response_class( json.dumps( closest_to_area_52() ), mimetype='application/json' )
 
 
 if __name == '__main__':

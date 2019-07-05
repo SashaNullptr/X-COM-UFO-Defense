@@ -9,3 +9,4 @@ from .db_query import send_query_fetchone_no_results, send_query_fetchone
 from .counter import count_rows_in_table
 from .fleet_composition import unique_ship_shapes
 from .evacuation_priorities import evac_priorties
+from .attack_origins import closest_to_area_52
