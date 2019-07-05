@@ -1,12 +1,9 @@
 # System
-import os
 import json
-import logging
-from urllib import parse
 
 # Third Party
-from flask import Flask, request, json, redirect, url_for, send_from_directory
-from flask_cors import CORS, cross_origin
+from flask import Flask, json
+from flask_cors import CORS
 
 # Local
 from x_com import count_rows_in_table, unique_ship_shapes, evac_priorties, closest_to_area_52
