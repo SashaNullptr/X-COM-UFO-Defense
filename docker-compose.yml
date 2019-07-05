@@ -3,37 +3,44 @@ services:
 
   db:
     restart: always
-    image: postgres:9.6-alpine
+    image: postgres:latest
     networks:
-      db_network:
-        ipv4_address: 172.31.0.15
+      - db_network
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
     volumes:
       - /srv/postgres:/var/lib/postgresql/data
       - ./data_munging_tools/csv_to_SQL.sh:/opt/data_munging_tools/csv_to_SQL.sh
-      - ./data_sets/ufo-sightings.csv:/opt/data_munging_tools/ufo-sightings.csv
-    command:
-      - /opt/data_munging_tools/csv_to_SQL.sh
+      - ./data_sets/ufo-sightings.csv:/opt/data_sets/ufo-sightings.csv
+    # command:
+    #   - /opt/data_munging_tools/csv_to_SQL.sh
 
   flask:
     restart: always
-    image: sashanullptr/xcom:latest
+    image: xcom:latest
+    build: .
     networks:
-      external_network:
-        ipv4_address: 192.168.1.15
-      db_network:
-        ipv4_address: 172.31.0.10
+      - external_network
+      - db_network
     healthcheck:
         test: curl --fail http://localhost:5000/ping || exit 1
         interval: 10s
         timeout: 2s
         retries: 5
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    links:
+      - "db:database"
 
 networks:
   external_network:
     driver: bridge
-    enable_ipv6: true
     ipam:
       driver: default
   db_network:
