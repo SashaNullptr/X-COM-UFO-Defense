@@ -30,5 +30,3 @@ def evac_priorties():
             conn.close()
 
     return {"sightings":sightings}
-
-print(evac_priorties())
