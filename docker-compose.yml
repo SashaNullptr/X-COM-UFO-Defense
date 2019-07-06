@@ -3,8 +3,7 @@ services:
 
   db:
     restart: always
-        image: postgres_star:latest
-        build: ./data_munging_tools
+    image: postgres:latest
     networks:
       - db_network
     healthcheck:
@@ -14,7 +13,11 @@ services:
     environment:
       POSTGRES_PASSWORD: 'postgres'
     volumes:
-      - /srv/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+      - ./data_munging_tools/csv_to_SQL.sh:/opt/data_munging_tools/csv_to_SQL.sh
+      - ./data_sets/ufo-sightings.csv:/opt/data_sets/ufo-sightings.csv
+    # command:
+    #   - /opt/data_munging_tools/csv_to_SQL.sh
 
   flask:
     restart: always
@@ -34,6 +37,8 @@ services:
       - 5000:5000
     links:
       - "db:database"
+volumes:
+  postgres_data:
 
 networks:
   external_network:
