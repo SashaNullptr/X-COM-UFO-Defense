@@ -84,3 +84,7 @@ The app will expose port `5000` and the following endpoints:
 * `/unique_ship_shapes`: Total number of unique shapes of alien ships across all sightings.
 * `/evac_priorties`: Top-10 Cities in the United States with the most UFO sightings in descending order.
 * `/closest_to_area_52`: Information about UFO sightings closest to Area 52.
+
+## Sample Outputs
+
+Here are some [outputs generated](./sample_outputs.md) using the app.
