@@ -3,7 +3,8 @@ services:
 
   db:
     restart: always
-    image: postgres:latest
+    image: postgis:latest
+    build: ./postgres/Dockerfile
     networks:
       - db_network
     healthcheck:
