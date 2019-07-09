@@ -14,5 +14,8 @@ setup(
         'Operating System :: Linux',
         'Topic :: UFO Defense',
     ),
+    package_data={
+      'x_com': ['config_files/*'],
+      },
     author='Sasha Elaine Fox'
 )
