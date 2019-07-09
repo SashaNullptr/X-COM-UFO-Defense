@@ -26,7 +26,7 @@ def closest_to_area_52():
     area_52_long = -87.3956
 
     def distance_to_a_52(lat,long):
-        return haversine( lat, long,area_52_long, area_52_lat )
+        return haversine(long, lat, area_52_long, area_52_lat)
 
     conn = None
     sorted_distances = None
