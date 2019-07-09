@@ -12,12 +12,15 @@ def closest_to_area_52():
 
         cur = conn.cursor()
 
+            area_52_lat = 46.5476
+            area_52_long = -87.3956
+
         select_and_sort_query = """
                             SELECT
                               *,
                               ST_Distance(
-                                ST_MakePoint(latitude, longitude),
-                                ST_MakePoint(46.5476, -87.3956)
+                                ST_MakePoint(longitude,latitude),
+                                ST_MakePoint(-87.3956,46.5476)
                               ) AS distance
                             FROM
                               ufo_Data
