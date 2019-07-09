@@ -1,32 +1,7 @@
-from math import radians, cos, sin, asin, sqrt
-
-# Courtesy of  https://stackoverflow.com/a/4913653
-def haversine(lon1, lat1, lon2, lat2):
-    """
-    Calculate the great circle distance between two points
-    on the earth (specified in decimal degrees)
-    """
-    # convert decimal degrees to radians
-    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-
-    # Haversine formula
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a))
-    r = 6371 # Radius of earth in kilometers. Use 3956 for miles
-    return c * r
-
 import psycopg2
 from x_com.db_config import config
 
 def closest_to_area_52():
-
-    area_52_lat = 46.5476
-    area_52_long = -87.3956
-
-    def distance_to_a_52(lat,long):
-        return haversine(long, lat, area_52_long, area_52_lat)
 
     conn = None
     closest = None
