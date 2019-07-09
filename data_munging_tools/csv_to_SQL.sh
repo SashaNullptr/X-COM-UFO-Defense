@@ -8,6 +8,10 @@ CREATE_DB_COMMAND="
 CREATE DATABASE ufo_db
 "
 
+SETUP_POSTGIS_COMMAND="
+CREATE EXTENSION postgis;
+"
+
 CREATE_TABLE_COMMAND="
 CREATE TABLE ufo_data (
     id SERIAL,
@@ -34,4 +38,5 @@ export PGPASSWORD='postgres';
 
 psql -U 'postgres' -h 127.0.0.1 -c "$CREATE_DB_COMMAND"
 psql -U 'postgres' -d 'ufo_db' -h 127.0.0.1 -c "$CREATE_TABLE_COMMAND"
+psql -U 'postgres' -d 'ufo_db' -h 127.0.0.1 -c "$SETUP_POSTGIS_COMMAND"
 psql -U 'postgres' -d 'ufo_db' -h 127.0.0.1 -c "$DUMP_CSV_COMMAND"
