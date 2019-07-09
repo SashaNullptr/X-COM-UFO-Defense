@@ -4,7 +4,7 @@ setup(
     name='x_com',
     version='19.9.9',
     packages=find_packages(exclude=[ 'docs' ]),
-    install_requires=['psycopg2','flask','flask_cors'],
+    install_requires=['psycopg2'],
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
