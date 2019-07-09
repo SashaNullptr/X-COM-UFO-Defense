@@ -22,7 +22,7 @@ services:
   flask:
     restart: always
     image: xcom:latest
-    build: .
+    build: ./flask/Dockerfile
     networks:
       - external_network
       - db_network
