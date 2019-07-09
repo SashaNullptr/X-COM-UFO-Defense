@@ -29,7 +29,7 @@ def closest_to_area_52():
         return haversine(long, lat, area_52_long, area_52_lat)
 
     conn = None
-    closest_to_area_52 = None
+    closest = None
 
     try:
         params = config()
@@ -51,7 +51,7 @@ def closest_to_area_52():
                             """
         cur.execute(select_and_sort_query)
 
-        closest_to_area_52 = [ cur.fetchone() for _ in range(3) ]
+        closest = [ cur.fetchone() for _ in range(3) ]
 
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
@@ -76,6 +76,6 @@ def closest_to_area_52():
             'longitude':row[11],
             'distance':row[12]
         }
-    formatted_top_entries = [format_row_data(row) for row in closest_to_area_52]
+    formatted_top_entries = [format_row_data(row) for row in closest]
 
     return {"sightings":formatted_top_entries}
