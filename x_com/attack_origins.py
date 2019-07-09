@@ -29,7 +29,7 @@ def closest_to_area_52():
         return haversine(long, lat, area_52_long, area_52_lat)
 
     conn = None
-    sorted_distances = None
+    closest_to_area_52 = None
 
     try:
         params = config()
@@ -37,17 +37,21 @@ def closest_to_area_52():
 
         cur = conn.cursor()
 
-        select_all_query = 'SELECT * FROM ufo_data;'
-        cur.execute(select_all_query)
+        select_and_sort_query = """
+                            SELECT
+                              *,
+                              ST_Distance(
+                                ST_MakePoint(latitude, longitude),
+                                ST_MakePoint(46.5476, -87.3956)
+                              ) AS distance
+                            FROM
+                              ufo_Data
+                            ORDER BY
+                              distance ASC;
+                            """
+        cur.execute(select_and_sort_query)
 
-        def process_row(row):
-            lat = row[-2]
-            long = row[-1]
-
-            return (*row, distance_to_a_52(long,lat))
-
-        with_distance = [ process_row(row) for row in cur]
-        sorted_distances = sorted(with_distance, key=lambda x: x[-1])
+        closest_to_area_52 = [ cur.fetchone() for _ in range(3) ]
 
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
@@ -55,8 +59,6 @@ def closest_to_area_52():
     finally:
         if conn is not None:
             conn.close()
-
-    top_entries = sorted_distances[:3]
 
     def format_row_data(row):
         return {
@@ -74,6 +76,6 @@ def closest_to_area_52():
             'longitude':row[11],
             'distance':row[12]
         }
-    formatted_top_entries = [format_row_data(row) for row in top_entries]
+    formatted_top_entries = [format_row_data(row) for row in closest_to_area_52]
 
     return {"sightings":formatted_top_entries}
