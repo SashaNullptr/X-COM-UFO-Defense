@@ -65,23 +65,8 @@
     {
       "city": "marquette",
       "country": "us",
-      "description": "We had no idea what it was and did not speak of it for years.",
-      "distance": 0.4442293757538739,
-      "duration_seconds": 300,
-      "duration_text": "5 minutes",
-      "id": 6084,
-      "latitude": 46.5436111,
-      "longitude": -87.3952778,
-      "occurred_at": "Sat, 01 Jun 1974 00:00:00 GMT",
-      "reported_on": "Tue, 14 Feb 2006 00:00:00 GMT",
-      "shape": "oval",
-      "state": "mi"
-    },
-    {
-      "city": "marquette",
-      "country": "us",
       "description": "Light object in sky dims then moves away towards downtown after hovering for several minutes.",
-      "distance": 0.4442293757538739,
+      "distance": 0.00400189155900358,
       "duration_seconds": 240,
       "duration_text": "4 min",
       "id": 10267,
@@ -95,18 +80,40 @@
     {
       "city": "marquette",
       "country": "us",
-      "description": "Something awakened me. When I looked out of the deck window at around 4:00 a.m.&#44 I was surprised to see a red flashing light. I live",
-      "distance": 0.4442293757538739,
-      "duration_seconds": 900,
-      "duration_text": "15 minutes",
-      "id": 14024,
+      "description": "We had no idea what it was and did not speak of it for years.",
+      "distance": 0.00400189155900358,
+      "duration_seconds": 300,
+      "duration_text": "5 minutes",
+      "id": 6084,
       "latitude": 46.5436111,
       "longitude": -87.3952778,
-      "occurred_at": "Thu, 31 Jul 2008 16:00:00 GMT",
-      "reported_on": "Tue, 12 Aug 2008 00:00:00 GMT",
-      "shape": "sphere",
+      "occurred_at": "Sat, 01 Jun 1974 00:00:00 GMT",
+      "reported_on": "Tue, 14 Feb 2006 00:00:00 GMT",
+      "shape": "oval",
+      "state": "mi"
+    },
+    {
+      "city": "marquette",
+      "country": "us",
+      "description": "I was on the second floor deck&#44 looked up for stars&#44 craft went right over me&#44 just above tree tops&#44 no lights&#44 covered mile to power c",
+      "distance": 0.00400189155900358,
+      "duration_seconds": 2,
+      "duration_text": "seconds",
+      "id": 24652,
+      "latitude": 46.5436111,
+      "longitude": -87.3952778,
+      "occurred_at": "Thu, 15 Aug 1991 22:45:00 GMT",
+      "reported_on": "Sun, 01 Nov 1998 00:00:00 GMT",
+      "shape": "egg",
       "state": "mi"
     }
   ]
 }
+```
+
+Timing (via curl)
+```bash
+real	0m0.507s
+user	0m0.005s
+sys	0m0.004s
 ```
