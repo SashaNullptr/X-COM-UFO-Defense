@@ -4,7 +4,9 @@ services:
   db:
     restart: always
     image: postgis:latest
-    build: ./Dockerfiles/postgres/Dockerfile
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/postgres/Dockerfile
     networks:
       - db_network
     healthcheck:
