@@ -5,12 +5,28 @@
   "count": 80332
 }
 ```
+
+Timing (via curl)
+```bash
+real	0m0.026s
+user	0m0.012s
+sys	0m0.000s
+```
+
 ## `/unique_ship_shapes`
 ```json
 {
   "count": 29
 }
 ```
+
+Timing (via curl)
+```bash
+real	0m0.053s
+user	0m0.012s
+sys	0m0.004s
+```
+
 ## `/evac_priorties`
 ```json
 {
@@ -58,6 +74,14 @@
   ]
 }
 ```
+
+Timing (via curl)
+```bash
+real	0m0.058s
+user	0m0.008s
+sys	0m0.004s
+```
+
 ## `/closest_to_area_52`
 ```json
 {
