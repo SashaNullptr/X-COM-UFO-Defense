@@ -8,9 +8,9 @@
 
 Timing (via curl)
 ```bash
-real	0m0.026s
-user	0m0.012s
-sys	0m0.000s
+real	0m0.039s
+user	0m0.006s
+sys	0m0.006s
 ```
 
 ## `/unique_ship_shapes`
@@ -22,9 +22,9 @@ sys	0m0.000s
 
 Timing (via curl)
 ```bash
-real	0m0.053s
-user	0m0.012s
-sys	0m0.004s
+real	0m0.054s
+user	0m0.006s
+sys	0m0.010s
 ```
 
 ## `/evac_priorties`
@@ -77,9 +77,9 @@ sys	0m0.004s
 
 Timing (via curl)
 ```bash
-real	0m0.058s
-user	0m0.008s
-sys	0m0.004s
+real	0m0.065s
+user	0m0.005s
+sys	0m0.009s
 ```
 
 ## `/closest_to_area_52`
@@ -137,7 +137,7 @@ sys	0m0.004s
 
 Timing (via curl)
 ```bash
-real	0m0.507s
-user	0m0.005s
-sys	0m0.004s
+real	0m0.529s
+user	0m0.012s
+sys	0m0.000s
 ```
