@@ -4,7 +4,7 @@ setup(
     name='x_com',
     version='19.9.9',
     packages=find_packages(exclude=[ 'docs' ]),
-    install_requires=['psycopg2'],
+    install_requires=['psycopg2-binary'],
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
