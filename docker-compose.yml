@@ -29,7 +29,7 @@ services:
       context: ./
       args:
         APP_ROOT_DIR: ./
-        FLASK_ROOT_FILE: ./flask_app.py
+        FLASK_ROOT_FILE: ./x_com_app.py
         WSGI_FILE: ./apache2_files/app.wsgi
         APACHE_CONF: ./apache2_files/app.conf
     networks:
